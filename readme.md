@@ -1,1 +1,1 @@
-# Be awsome
+# Be awesome
