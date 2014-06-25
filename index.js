@@ -20,23 +20,21 @@ app.post('/register', function(req, res) {
   var urlOriginal = req.param('url');
   console.log(urlOriginal);
   
-  var newUrl= redis.shortenUrl(urlOriginal);
+  var result = redis.shortenUrl(urlOriginal);
+    console.log(result);
   
-  res.render('registered', {
-    "url":"http://localhost:3000/r/" + newUrl, 
-    "urlOriginal":urlOriginal
-  });
+    res.render('registered', {
+      "url":"http://localhost:3000/r/" + result, 
+      "urlOriginal":urlOriginal
+    });
+  
 });
-
-app.get('/redirect', function(req, res){
-  //get url from redis
-  //redirect to url
-})
 
 app.get('/r/:key', function(req, res) {
   var key = req.param("key");
-  var url = redis.getUrl(key);
-  res.redirect(url);
+  var url = redis.getUrl(key, function(result) {
+      res.redirect(result);
+  });
 });
 
 var port = Number(process.env.PORT || 3000);
