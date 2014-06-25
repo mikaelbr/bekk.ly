@@ -21,7 +21,7 @@ app.post('/register', function(req, res) {
   console.log(urlOriginal);
   
   var result = redis.shortenUrl(urlOriginal);
-    console.log(result);
+    console.log("Result: " + result);
   
     res.render('registered', {
       "url":"http://localhost:3000/r/" + result, 
@@ -32,7 +32,8 @@ app.post('/register', function(req, res) {
 
 app.get('/r/:key', function(req, res) {
   var key = req.param("key");
-  var url = redis.getUrl(key, function(result) {
+  console.log(key)
+  redis.getUrl(key, function(err, result) {
       res.redirect(result);
   });
 });
