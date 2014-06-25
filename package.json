@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/bekkopen/bekk.ly/issues"
   },
-  "homepage": "https://github.com/bekkopen/bekk.ly"
+  "homepage": "https://github.com/bekkopen/bekk.ly",
+  "dependencies": {
+    "express": "~4.4.4",
+    "consolidate": "~0.10.0",
+    "redis": "~0.10.3",
+    "handlebars": "~2.0.0-alpha.4"
+  }
 }
