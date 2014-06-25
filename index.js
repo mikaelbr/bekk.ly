@@ -20,8 +20,10 @@ app.post('/register', function(req, res) {
   var urlOriginal = req.param('url');
   console.log(urlOriginal);
   
+  var newUrl= redis.shortenUrl(urlOriginal);
+  
   res.render('registered', {
-    "url":"http://bekk.ly/r/oerijg", 
+    "url":"http://localhost:3000/r/" + newUrl, 
     "urlOriginal":urlOriginal
   });
 });
@@ -30,5 +32,12 @@ app.get('/redirect', function(req, res){
   //get url from redis
   //redirect to url
 })
+
+app.get('/r/:key', function(req, res) {
+  var key = req.param("key");
+  var url = redis.getUrl(key);
+  res.redirect(url);
+});
+
 var port = Number(process.env.PORT || 3000);
 app.listen(port);
