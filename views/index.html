@@ -1,13 +1,22 @@
-<html>
+<html class="themeDark">
 <head>
-  <title>Welcome to bekk.ly</title>
+    <title>bekk.ly</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link type="text/css" rel="stylesheet" href="/assets/bundle.css"/>
+    <link type="text/css" rel="stylesheet"
+          href="https://fast.fonts.net/cssapi/1927d443-3863-4afb-887a-5e2a888b69cb.css">
 </head>
 <body>
-  <h1>Registrer url</h1>
-  <form method="post" action="/register">
-    <label for="url">URL</label>
-    <input type="url" name="url" id="url"/>
-    <input type="submit" value="Registrer"/>
-  </form>
+<header class="header">
+    <div class="u-container">
+        <div class="u-row">
+            <h2>BEKK.ly</h2>
+        </div>
+    </div>
+</header>
+<main class="u-container">
+    {{>(lookup . 'body')}}
+</main>
+
 </body>
 </html>
