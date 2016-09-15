@@ -2,3 +2,12 @@
 node_modules/
 *.iml
 web/
+
+# Ignore redis dump
+dump.rdb
+
+# Ignore logs
+*.log
+
+# Ignore Mac specific files
+.DS_Store
